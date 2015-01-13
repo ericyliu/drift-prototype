@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="base_turn_delay">100</integer>
+    <integer name="tick_add">1</integer>
+    <integer name="turn_time">10</integer>
+</resources>

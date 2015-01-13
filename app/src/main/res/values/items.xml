@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bronze_sword_name">Bronze Sword</string>
+    <string name="bronze_sword_desc">A simple bronze sword.</string>
+    <integer name="bronze_sword_damage">5</integer>
+
+    <string name="bronze_helmet_name">Bronze Helmet</string>
+    <string name="bronze_helmet_desc">A simple bronze helmet.</string>
+    <integer name="bronze_helmet_armor">3</integer>
+
+    <string name="health_potion_name">Health Potion</string>
+    <string name="health_potion_desc">A simple drink to cure 5 health.</string>
+    <integer name="health_potion_amount">5</integer>
+</resources>

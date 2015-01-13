@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="slash_name">Slash</string>
+    <string name="slash_desc">A physical attack used for cutting through the enemy.</string>
+    <integer name="slash_dmg">1</integer>
+
+    <string  name="heal_name">Heal</string>
+    <string  name="heal_desc">A magical spell used to heal yourself and allies.</string>
+    <integer  name="heal_amt">1</integer>
+</resources>

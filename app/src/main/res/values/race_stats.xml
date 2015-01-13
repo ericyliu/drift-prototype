@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Human_Health">20</string>
+    <string name="Human_Mana">10</string>
+    <string name="Human_Agility">5</string>
+    <string name="Human_Intelligence">5</string>
+    <string name="Human_Strength">6</string>
+</resources>
