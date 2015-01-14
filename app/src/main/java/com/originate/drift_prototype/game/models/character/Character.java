@@ -29,7 +29,8 @@ public class Character {
 
     public double damageJustTaken;
 
-    public Character (int id, String character_name, Race character_race) {
+    public Character (int character_id, String character_name, Race character_race) {
+        id = character_id;
         name = character_name;
         race = character_race;
         attacks = new ArrayList<>();
@@ -37,6 +38,11 @@ public class Character {
         loadEquipment();
         loadStats();
     }
+
+    public String useAbility (Ability ability, Character target) {
+        return ability.invoke(this, target);
+    }
+
 
     public double getArmorRating () {
         double armorTotal = 0;

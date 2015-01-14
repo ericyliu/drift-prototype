@@ -23,7 +23,7 @@ public class CharacterTest extends ActivityInstrumentationTestCase2<MainActivity
     @Override
     protected void setUp () throws Exception {
         super.setUp();
-        System.out.print(getActivity());
+        getActivity();
         character = new Character(0, "Test_Name", Race.Human);
     }
 
