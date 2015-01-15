@@ -76,7 +76,7 @@ public class Character {
 
     public void applyEnchantments () {
         for (Item item : equipment.values()) {
-            item.applyStatusEffect(this, this);
+            if (item != null) item.applyStatusEffect(this);
         }
     }
 

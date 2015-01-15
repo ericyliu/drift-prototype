@@ -20,6 +20,7 @@ public class Slash extends Ability {
 
     @Override
     public String invoke (Character source, Character target) {
+        String output = "";
         //Calculate damage
         double damage = baseDamage;
         damage += (source.stats.get(Stats.Strength).current * .50) +
@@ -28,12 +29,11 @@ public class Slash extends Ability {
         damage *= 1-(target.getArmorRating()/100);
         //Deal damage and on hit
         target.takeDamage(damage);
-        for (Item item : source.equipment.values()) {
-            if (item != null) item.applyOnHitEffect(source, target);
-        }
-        //Return console string
-        return String.format("%s used %s on %s. It did %d damage.",
-                             source.name, name, target.name,
-                             MoreMath.doubleToInt(damage));
+        //Set output string
+        output = String.format("[Attack] %s used %s on %s for %d damage. ",
+                                        source.name, name, target.name,
+                                        MoreMath.doubleToInt(damage));
+        output += super.invoke(source, target);
+        return output;
     }
 }

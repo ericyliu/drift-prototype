@@ -35,17 +35,17 @@ public class AbilityTest extends ActivityInstrumentationTestCase2<MainActivity> 
         character.spells.add(heal);
         target.takeDamage(10);
         String output = character.useAbility(heal, target);
-        assertEquals("String output does not match", output, "Char1 has healed Char2 for 4.");
+        assertEquals("String output does not match", output, "[Spell] Char1 has healed Char2 for 4. ");
         assertEquals("Target health is not 14", target.stats.get(Stats.Health).current, 13.5d);
         output = character.useAbility(heal, character);
-        assertEquals("String output does not match", output, "Char1 has healed themselves for 4.");
+        assertEquals("String output does not match", output, "[Spell] Char1 has healed themselves for 4. ");
     }
 
     public void testSlash () {
         Ability slash = new Slash();
         character.attacks.add(slash);
         String output = character.useAbility(slash, target);
-        assertEquals("String output does not match", output, "Char1 used Slash on Char2. It did 5 damage.");
+        assertEquals("String output does not match", output, "[Attack] Char1 used Slash on Char2 for 5 damage. ");
         assertEquals("Target health is not", target.stats.get(Stats.Health).current, 15.5d);
     }
 

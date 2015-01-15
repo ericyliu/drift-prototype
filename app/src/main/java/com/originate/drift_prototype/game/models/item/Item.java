@@ -19,11 +19,18 @@ public abstract class Item {
 
     public ArrayList<Enchantment> enchantments = new ArrayList<>();
 
-    public void applyStatusEffect (Character source, Character target) {
-        for (Enchantment enchant : enchantments) enchant.applyStatusEffect(source, target);
+    public void applyStatusEffect (Character source) {
+        for (Enchantment enchant : enchantments) enchant.applyStatusEffect(source);
     }
-    public void applyOnHitEffect (Character source, Character target) {
-        for (Enchantment enchant : enchantments) enchant.applyOnHitEffect(source, target);
+    public String applyOnHitEffect (Character source, Character target) {
+        String text = "";
+        for (Enchantment enchant : enchantments) text += enchant.applyOnHitEffect(source, target);
+        return text;
+    }
+    public String applyOnPassiveEffect (Character source, Character target) {
+        String text = "";
+        for (Enchantment enchant : enchantments) text += enchant.applyOnPassiveEffect(source, target);
+        return text;
     }
 
 }
