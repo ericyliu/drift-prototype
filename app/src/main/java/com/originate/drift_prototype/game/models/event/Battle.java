@@ -31,6 +31,11 @@ public class Battle extends Event {
     }
 
     public void end (User winner) {
+        for (ArrayList<Character> team : teams) {
+            for (Character character : team) {
+                character.reset();
+            }
+        }
         winner.inventory.addAll(prize);
     }
 

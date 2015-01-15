@@ -12,12 +12,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Character {
-    final static double    max_armor       = ResLoader.getInt(R.integer.max_armor_possible);
-    final static double    max_reduction   = ResLoader.getInt(R.integer.max_damage_reduction);
+    final static double    max_armor        = ResLoader.getInt(R.integer.max_armor_possible);
+    final static double    max_reduction    = ResLoader.getInt(R.integer.max_damage_reduction);
+    final static int       stat_per_level   = ResLoader.getInt(R.integer.stat_points_per_level);
 
     public int id;
     public String name;
     public Race race;
+
+    public int level = 1;
+    public int experience = 0;
+    public int statPoints = 0;
 
     public HashMap<Slots,Item> equipment;
     public HashMap<Stats,Attribute> stats;
@@ -38,6 +43,21 @@ public class Character {
         loadEquipment();
         loadStats();
     }
+
+    public void gainExperience (int xp) {
+        experience += xp;
+        while (experience >= Levels.experienceForLevel[level]) {
+            levelUp();
+            experience -= Levels.experienceForLevel[level];
+        }
+
+    }
+
+    public void levelUp () {
+        statPoints += stat_per_level;
+        level++;
+    }
+
 
     public String useAbility (Ability ability, Character target) {
         return ability.invoke(this, target);
@@ -112,6 +132,12 @@ public class Character {
         Item item = equipment.get(slot);
         equipment.put(slot, null);
         return item;
+    }
+
+    public void reset () {
+        for (Attribute attr : stats.values()) {
+            attr.resetMax();
+        }
     }
 
     private void loadStats () {
