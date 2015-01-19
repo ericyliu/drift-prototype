@@ -4,14 +4,26 @@ import com.originate.drift_prototype.R;
 import com.originate.drift_prototype.app.models.User;
 import com.originate.drift_prototype.game.models.character.Attribute;
 import com.originate.drift_prototype.game.models.character.Character;
+import com.originate.drift_prototype.game.models.character.Stats;
 
 import java.util.ArrayList;
 
 public class Battle extends Event {
 
-    public ArrayList<ArrayList<Character>> teams = new ArrayList<>();
-    public ArrayList<User> users = new ArrayList<>();
-    public Character currentCharacter = null;
+    public int  NUM_TEAMS = 2;
+
+    public      ArrayList<ArrayList<Character>> teams = new ArrayList<>();
+    public      ArrayList<User> users = new ArrayList<>();
+    public      Character currentCharacter = null;
+
+    public Battle(String name, String description) {
+        this.name = name;
+        this.description = description;
+        for (int i=0; i < NUM_TEAMS; i++) {
+            teams.add(new ArrayList<Character>());
+            users.add(null);
+        }
+    }
 
     public void start () {
         for (ArrayList<Character> team : teams) {
@@ -50,6 +62,10 @@ public class Battle extends Event {
         return winningTeam;
     }
 
+    public void addUser (User user, int team) {
+        users.set(team, user);
+    }
+
     public void addCharacter (Character character, int team) {
         teams.get(team).add(character);
     }
@@ -67,7 +83,7 @@ public class Battle extends Event {
     }
 
     private void setMaxDelay (Character character) {
-        Attribute agility = character.stats.get("agility");
+        Attribute agility = character.stats.get(Stats.Agility);
         agility.custom = R.integer.base_turn_delay/Math.sqrt(agility.current);
     }
 
@@ -82,15 +98,15 @@ public class Battle extends Event {
         Character nextCharacter = null;
         for (ArrayList<Character> team: teams) {
             for (Character character : team) {
-                if (character.alive) character.stats.get("agility").custom -= R.integer.tick_add;
+                if (character.alive) character.stats.get(Stats.Agility).custom -= R.integer.tick_add;
             }
         }
         for (ArrayList<Character> team: teams) {
             for (Character character : team) {
-                Attribute agility = character.stats.get("agility");
+                Attribute agility = character.stats.get(Stats.Agility);
                 if (character.alive && agility.custom <= 0) {
                     if (nextCharacter == null ||
-                            agility.custom < nextCharacter.stats.get("agility").custom) {
+                            agility.custom < nextCharacter.stats.get(Stats.Agility).custom) {
                         nextCharacter = character;
                     }
                 }

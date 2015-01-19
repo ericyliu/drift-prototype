@@ -9,6 +9,10 @@ public class Event {
     public String name;
     public String description;
 
-    public ArrayList<Item> prize = new ArrayList<Item>();
+    public ArrayList<Item> prize = new ArrayList<>();
+
+    public void addPrize (Item item) {
+        prize.add(item);
+    }
 
 }
