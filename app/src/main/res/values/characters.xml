@@ -2,4 +2,10 @@
 <resources>
     <integer name="max_armor_possible">200</integer>
     <integer name="max_damage_reduction">80</integer>
+
+    <integer name="max_level">100</integer>
+    <integer name="exp_max_level">1000000</integer>
+    <integer name="exp_min_level">10</integer>
+    <integer name="stat_points_per_level">3</integer>
+
 </resources>

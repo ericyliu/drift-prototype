@@ -9,19 +9,37 @@ import java.util.ArrayList;
 
 public class User {
 
-    public String           username;
-    public Character character;
+    public int              id;
+    public String           name;
+    public Character        character;
     public ArrayList<Item>  inventory;
 
     public ArrayList<Event>  events;
 
-    public User (String user_name) {
-        username = user_name;
+    public User (int user_id, String user_name) {
+        id = user_id;
+        name = user_name;
         inventory = new ArrayList<>();
     }
 
     public void createNewCharacter (int id, String name) {
         character = new Character(id, name, Race.Human);
+    }
+
+    @Override
+    public int hashCode() {
+        return (41 * (41 + id) + name.hashCode());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof User))
+            return false;
+        if (obj == this)
+            return true;
+
+        User user = (User) obj;
+        return (id == user.id && name == user.name);
     }
 
 }

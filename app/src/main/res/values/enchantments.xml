@@ -2,4 +2,10 @@
 <resources>
     <string name="bloodsuck_name">Bloodsuck</string>
     <string name="bloodsuck_ratio">.3</string>
+
+    <string name="thorns_name">Thorns</string>
+    <string name="thorns_ratio">.3</string>
+
+    <string name="ancient_knowledge_name">Ancient Knowledge</string>
+    <string name="ancient_knowledge_bonus">5</string>
 </resources>
