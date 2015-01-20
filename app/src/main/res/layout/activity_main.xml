@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:text="@string/title_play_button"
         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:onClick="StartApp"/>
 
     <View
         android:layout_width="0dp"

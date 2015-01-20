@@ -13,5 +13,10 @@
     <string name="title_activity_event_listing">EventListingActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_events_list">EventsListActivity</string>
+    <string name="title_activity_shop">ShopActivity</string>
+    <string name="title_activity_profile_activity">profile_activity</string>
+    <string name="title_activity_battle">BattleActivity</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
 
 </resources>

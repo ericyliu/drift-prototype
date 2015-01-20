@@ -11,6 +11,8 @@ public class User {
 
     public int              id;
     public String           name;
+
+    public int              money;
     public Character        character;
     public ArrayList<Item>  inventory;
 

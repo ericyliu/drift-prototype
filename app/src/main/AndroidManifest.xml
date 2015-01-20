@@ -17,10 +17,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EventListingActivity"
+            android:name=".EventsListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_event_listing"
-            android:theme="@style/FullscreenTheme" >
+            android:label="@string/title_activity_events_list" >
+        </activity>
+        <activity
+            android:name=".ShopActivity"
+            android:label="@string/title_activity_shop" >
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile_activity" >
+        </activity>
+        <activity
+            android:name=".BattleActivity"
+            android:label="@string/title_activity_battle" >
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up" >
         </activity>
     </application>
 
